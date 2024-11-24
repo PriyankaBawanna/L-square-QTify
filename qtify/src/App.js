@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Navbar } from "./components/Navbar/Navbar";
+import HeroSections from "./components/HeroSection/HeroSections";
+import Albums from "./components/AlbumsComponents/Albums";
+import {
+  getTopAlbumList,
+  getNewAlbumList,
+  getSongList,
+  getGenreList,
+} from "./api/api";
+import Song from "./components/FilterSectoin/FilterSection";
+import FaqSection from "./components/FaqSection/FaqSection";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <HeroSections />
+      <Albums title="Top Albums" apiCall={getTopAlbumList} />
+      <Albums title="New Albums" apiCall={getNewAlbumList} />
+      <Albums title="Songs" apiCall={getSongList} filterSource={getGenreList} />
+      <FaqSection />
+    </>
   );
 }
 
