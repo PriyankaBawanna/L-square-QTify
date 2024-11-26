@@ -1,48 +1,39 @@
 import axios from "axios";
 
-export const getTopAlbumList = async () => {
-     try {
-          const URL = "https://qtify-backend-labs.crio.do/albums/top";
-          const response = await axios.get(URL);
-          const list = response.data;
-          //   console.log("topAlbumList", list);
-          return list;
-     } catch (error) {
-          console("topAlbumList", error);
-     }
+export const BACKEND_ENDPOINT = "https://qtify-backend-labs.crio.do";
+
+export const fetchTopAlbums = () => {
+  return axios
+    .get(`${BACKEND_ENDPOINT}/albums/top`)
+    .then((res) => {
+      //console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
-export const getNewAlbumList = async () => {
-     try {
-          const URL = "https://qtify-backend-labs.crio.do/albums/new";
-          const response = await axios.get(URL);
-          const list = response.data;
-          //   console.log("topAlbumList", list);
-          return list;
-     } catch (error) {
-          console("topAlbumList", error);
-     }
+export const fetchNewAlbums = () => {
+  return axios
+    .get(`${BACKEND_ENDPOINT}/albums/new`)
+    .then((res) => {
+      //console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
-export const getSongList = async () => {
-     try {
-          const URL = "https://qtify-backend-labs.crio.do/songs";
-          const response = await axios.get(URL);
-          const list = response.data;
-          //   console.log("topAlbumList", list);
-          return list;
-     } catch (error) {
-          console("topAlbumList", error);
-     }
-};
-export const getGenreList = async () => {
-     try {
-          const URL = "https://qtify-backend-labs.crio.do/genres";
-          const response = await axios.get(URL);
-          const list = response.data;
-          //   console.log("topAlbumList", list);
-          return list;
-     } catch (error) {
-          console("topAlbumList", error);
-     }
+export const fetchSongs = () => {
+  return axios
+    .get(`${BACKEND_ENDPOINT}/songs`)
+    .then((res) => {
+      //console.log(res);
+      return res.data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };

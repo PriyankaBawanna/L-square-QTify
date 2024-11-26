@@ -1,25 +1,63 @@
-import { Navbar } from "./components/Navbar/Navbar";
-import HeroSections from "./components/HeroSection/HeroSections";
-import Albums from "./components/AlbumsComponents/Albums";
-import {
-  getTopAlbumList,
-  getNewAlbumList,
-  getSongList,
-  getGenreList,
-} from "./api/api";
-import Song from "./components/FilterSectoin/FilterSection";
-import FaqSection from "./components/FaqSection/FaqSection";
-function App() {
+import { useState, useEffect } from "react";
+import "./styles.css";
+import { fetchTopAlbums, fetchNewAlbums, fetchSongs } from "./api/api.js";
+import HomePage from "./pages/HomePage/HomePage";
+import { Routes, Route } from "react-router-dom";
+import AlbumPage from "./pages/AlbumPage/AlbumPage";
+
+export default function App() {
+  const [topAlbums, setTopAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
+  const [feedbackFlag, setFeedbackFlag] = useState(false);
+  const [songs, setSongs] = useState([]);
+  const [currSong, setCurrSong] = useState(null);
+  const generateData = async () => {
+    try {
+      let res = await fetchTopAlbums();
+      setTopAlbums(res);
+      res = await fetchNewAlbums();
+      setNewAlbums(res);
+      res = await fetchSongs();
+      setSongs(res);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    generateData();
+  }, []);
   return (
-    <>
-      <Navbar />
-      <HeroSections />
-      <Albums title="Top Albums" apiCall={getTopAlbumList} />
-      <Albums title="New Albums" apiCall={getNewAlbumList} />
-      <Albums title="Songs" apiCall={getSongList} filterSource={getGenreList} />
-      <FaqSection />
-    </>
+    <div className="App">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              topAlbums={topAlbums}
+              newAlbums={newAlbums}
+              songs={songs}
+              currSong={currSong}
+              setCurrSong={setCurrSong}
+              feedbackFlag={feedbackFlag}
+              setFeedbackFlag={setFeedbackFlag}
+            />
+          }
+        />
+        <Route
+          path="/albums/:slug"
+          element={
+            <AlbumPage
+              topAlbums={topAlbums}
+              newAlbums={newAlbums}
+              currSong={currSong}
+              setCurrSong={setCurrSong}
+              feedbackFlag={feedbackFlag}
+              setFeedbackFlag={setFeedbackFlag}
+            />
+          }
+        />
+      </Routes>
+    </div>
   );
 }
-
-export default App;

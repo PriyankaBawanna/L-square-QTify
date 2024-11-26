@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e029079.css",
+    "main.js": "/static/js/main.b1f6438f.js",
+    "static/media/vibrating-headphone.png": "/static/media/vibrating-headphone.7f83d2d8dde670dda737.png",
+    "static/media/library.svg": "/static/media/library.9da7847f0ecccb540f049011286257ec.svg",
+    "static/media/shuffle.svg": "/static/media/shuffle.5dede0938e3471bdb96aee59ed3372c1.svg",
+    "static/media/search-icon.svg": "/static/media/search-icon.45e64b0801152069b25cb25ba8482de9.svg",
+    "static/media/rightArrow.svg": "/static/media/rightArrow.493bc99e5d27619b258049136301defe.svg",
+    "static/media/leftArrow.svg": "/static/media/leftArrow.349fab4a37522765d67ded09d6524e46.svg",
+    "static/media/backArrow.svg": "/static/media/backArrow.9ab2918987fc51609a19ffcc91b607ff.svg",
+    "index.html": "/index.html",
+    "static/media/close.svg": "/static/media/close.b407063a2f83f389e34091caa2fd9576.svg",
+    "static/media/play.svg": "/static/media/play.7cec93e12b997e284638e0e4e0122d9d.svg",
+    "static/media/pause.svg": "/static/media/pause.03355639c1cb2f9cbe14fb5f8ded57af.svg",
+    "main.4e029079.css.map": "/static/css/main.4e029079.css.map",
+    "main.b1f6438f.js.map": "/static/js/main.b1f6438f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e029079.css",
+    "static/js/main.b1f6438f.js"
+  ]
+}
